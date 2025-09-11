@@ -1,4 +1,4 @@
-.profile-card img {
+.profile_card img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -6,7 +6,7 @@
 
 }
 
-.profile-card {
+.profile_card {
   display: flex;
   flex-direction: row;
   align-items: center;
