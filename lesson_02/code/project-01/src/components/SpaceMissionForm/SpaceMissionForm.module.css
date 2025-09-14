@@ -1,0 +1,18 @@
+.containerSpaceMissionForm {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border: 2px solid gray;
+  padding: 24px;
+  border-radius: 16px;
+  width: 600px;
+  margin: 24px;
+  gap: 10px;
+  font-size: 20px;
+  color: navy;
+  background-color: rgb(252, 245, 245);
+}
+
+.containerSpaceMissionForm p {
+  font-size: 24px;
+}

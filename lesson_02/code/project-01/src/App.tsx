@@ -6,6 +6,7 @@ import DogCard from "./components/DogCard/DogCard";
 import Greeting from "./components/Greeting/Greeting";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
+import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Goodbye name={"Bob"} />
       <Goodbye name={"John"} />
       <AgeInfo age={25} name={"Bob"}/> */}
+      <SpaceMissionForm />
     </div>
   );
 }
