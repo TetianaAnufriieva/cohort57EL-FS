@@ -3,6 +3,7 @@ import Counter from "./components/Counter/Counter";
 import Demo from "./components/Demo/Demo";
 // import AgeInfo from "./components/AgeInfo/AgeInfo";
 import DogCard from "./components/DogCard/DogCard";
+import GenderByName from "./components/GenderByName/GenderByName";
 // import Goodbye from "./components/Goodbye/Goodbye";
 import Greeting from "./components/Greeting/Greeting";
 import Nationality from "./components/Nationality/Nationality";
@@ -14,6 +15,7 @@ function App() {
   return (
     <div>
       {/* <p>Hello, React!</p> */}
+      <GenderByName />
       <PersonalGreeting />
       <Greeting />
       <Demo />
