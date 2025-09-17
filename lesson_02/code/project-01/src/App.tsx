@@ -1,9 +1,11 @@
 import "./App.css";
 import Counter from "./components/Counter/Counter";
+import Demo from "./components/Demo/Demo";
 // import AgeInfo from "./components/AgeInfo/AgeInfo";
 import DogCard from "./components/DogCard/DogCard";
 // import Goodbye from "./components/Goodbye/Goodbye";
 import Greeting from "./components/Greeting/Greeting";
+import Nationality from "./components/Nationality/Nationality";
 import PersonalGreeting from "./components/PersonalGreeting/PersonalGreeting";
 import ProfileCard from "./components/ProfileCard/ProfileCard";
 import SpaceMissionForm from "./components/SpaceMissionForm/SpaceMissionForm";
@@ -14,6 +16,8 @@ function App() {
       {/* <p>Hello, React!</p> */}
       <PersonalGreeting />
       <Greeting />
+      <Demo />
+      <Nationality />
       <Counter />
       <DogCard />
       <ProfileCard avatar={"https://static.vecteezy.com/system/resources/previews/011/459/669/original/people-avatar-icon-png.png"} name={"Иванова Ирина Ивановна"} description={"Фанатка спорта, книг и хорошего кофе"} />
