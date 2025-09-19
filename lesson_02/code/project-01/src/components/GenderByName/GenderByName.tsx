@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-import styles from "./GenderByName.module.css"
+import styles from "./GenderByName.module.css";
 const URL_GenderByName = "https://api.genderapi.io/api/?name=";
 
 export default function GenderByName() {
-  const [name, setName] = useState("Tetiana");
+  const [name, setName] = useState("");
   const [data, setData] = useState<any>();
   const [message, setMessage] = useState("");
 
   async function getGenderByName() {
-
     if (!name.trim()) {
       setMessage("Enter the name");
       setData(null);
       return;
     }
 
+    setMessage("");
+    setData(null);
 
     try {
       const res = await fetch(URL_GenderByName + name);
