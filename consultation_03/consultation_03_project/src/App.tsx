@@ -1,5 +1,5 @@
-import Alcohol from './Alcohol/Coctail'
 import './App.css'
+import Coctail from './Cocktail/Coctail'
 import Playground from './Playground/Playground'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
       <div>
         <Playground />
-        <Alcohol />
+        <Coctail />
       </div>
    
   )
