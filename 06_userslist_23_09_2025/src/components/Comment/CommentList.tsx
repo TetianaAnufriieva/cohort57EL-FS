@@ -1,23 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { v4 } from "uuid";
-import User from "./User";
-export interface IUser {
+import Comment from "./Comment";
+
+export interface IComment {
+  postId: number;
   id: number;
   name: string;
-  username: string;
   email: string;
+  body: string;
 }
-const UserList = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
+
+const CommentList = () => {
+  const [comments, setComments] = useState<IComment[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+
   useEffect(() => {
     axios
-      .get<IUser>("https://jsonplaceholder.typicode.com/users")
+      .get<IComment[]>("https://jsonplaceholder.typicode.com/comments")
       .then((res) => res.data)
       .then((data) => {
-        setUsers(data);
+        setComments(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -26,12 +29,13 @@ const UserList = () => {
         setLoading(false);
       });
   }, []);
+
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Список пользователей</h2>
+      <h2 className="mb-4">Комментарии пользователей</h2>
       <div className="row g-3">
-        {users.map((user) => (
-          <User key={v4()} user={user} />
+        {comments.slice(0, 20).map((comment) => (
+          <Comment key={comment.id} comment={comment} />
         ))}
       </div>
       <div>
@@ -45,4 +49,5 @@ const UserList = () => {
     </div>
   );
 };
-export default UserList;
+
+export default CommentList;

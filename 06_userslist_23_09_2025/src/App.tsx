@@ -1,6 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import UserList from "./components/UserList/UserList";
+import CommentList from "./components/Comment/CommentList";
 
 // SPA - Single Page Application
 function App() {
@@ -8,14 +9,20 @@ function App() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to='/'>Домашняя страница</Link>
+          <Link className="navbar-brand" to="/">
+            Домашняя страница
+          </Link>
           <div>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to='/users'>Пользователи</Link>
+                <Link className="nav-link" to="/users">
+                  Пользователи
+                </Link>
               </li>
               <li className="nav-item">
-                Комментарии
+                <Link className="nav-link" to="/comments">
+                  Комментарии
+                </Link>
               </li>
             </ul>
           </div>
@@ -25,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<div>Добро пожаловать на наш сайт!</div>} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/comments" element={<CommentList />} />
       </Routes>
     </>
   );

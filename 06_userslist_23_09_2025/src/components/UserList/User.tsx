@@ -2,7 +2,9 @@ import type { FC, JSX } from "react";
 import { v4 } from "uuid";
 import type { IUser } from "./UserList";
 
-const User: FC<{user: IUser}> = ({user: {name, username, email}}): JSX.Element => {
+const User: FC<{ user: IUser }> = ({
+  user: { name, username, email },
+}): JSX.Element => {
   return (
     <div className="col-12 col-md-6 col-lg-4" key={v4()}>
       <div className="card h-100 shadow-sm">
