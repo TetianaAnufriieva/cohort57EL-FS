@@ -2,6 +2,8 @@ import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import UserList from "./components/UserList/UserList";
 import CommentList from "./components/Comment/CommentList";
+import UserDetails from "./components/UserList/UserDetails";
+import CommentDetails from "./components/Comment/CommentDetails";
 
 // SPA - Single Page Application
 function App() {
@@ -32,7 +34,9 @@ function App() {
       <Routes>
         <Route path="/" element={<div>Добро пожаловать на наш сайт!</div>} />
         <Route path="/users" element={<UserList />} />
+        <Route path="/users/:id" element={<UserDetails />} />
         <Route path="/comments" element={<CommentList />} />
+        <Route path="/comments/:id" element={<CommentDetails />} />
       </Routes>
     </>
   );

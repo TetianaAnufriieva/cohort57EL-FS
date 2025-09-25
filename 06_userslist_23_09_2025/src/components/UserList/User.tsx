@@ -1,9 +1,10 @@
 import type { FC, JSX } from "react";
 import { v4 } from "uuid";
 import type { IUser } from "./UserList";
+import { Link } from "react-router-dom";
 
 const User: FC<{ user: IUser }> = ({
-  user: { name, username, email },
+  user: { name, username, email, id },
 }): JSX.Element => {
   return (
     <div className="col-12 col-md-6 col-lg-4" key={v4()}>
@@ -14,6 +15,7 @@ const User: FC<{ user: IUser }> = ({
           <p className="card-text">
             <strong>Email: </strong> {email}
           </p>
+          <Link to={`/users/${id}`} className="btn btn-primary btn-sm">Подробнее...</Link>
         </div>
       </div>
     </div>

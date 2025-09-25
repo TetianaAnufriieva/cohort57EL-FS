@@ -21,22 +21,24 @@ const CommentList = () => {
       .then((res) => res.data)
       .then((data) => {
         setComments(data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((error) => {
         console.error(error.message);
         setError(error.message);
-        setLoading(false);
-      });
+        // setLoading(false);
+      })
+      .finally(() => setLoading(false)); // общие конечные действия
   }, []);
 
   return (
     <div className="container mt-4">
       <h2 className="mb-4">Комментарии пользователей</h2>
       <div className="row g-3">
-        {comments.slice(0, 20).map((comment) => (
+        {comments.filter ((_, i) => i < 50).map((e, i) => (<Comment key={e.id} comment={e}/>))}
+        {/* {comments.slice(0, 20).map((comment) => ( 
           <Comment key={comment.id} comment={comment} />
-        ))}
+        ))} */}
       </div>
       <div>
         {loading && (

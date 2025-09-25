@@ -7,6 +7,8 @@ export interface IUser {
   name: string;
   username: string;
   email: string;
+  phone: string;
+  website: string;
 }
 const UserList = () => {
   const [users, setUsers] = useState<IUser[]>([]);
