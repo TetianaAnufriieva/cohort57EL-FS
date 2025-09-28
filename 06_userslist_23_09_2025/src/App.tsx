@@ -4,6 +4,8 @@ import UserList from "./components/UserList/UserList";
 import CommentList from "./components/Comment/CommentList";
 import UserDetails from "./components/UserList/UserDetails";
 import CommentDetails from "./components/Comment/CommentDetails";
+import PostList from "./components/Post/PostList";
+import PostDetails from "./components/Post/PostDetails";
 
 // SPA - Single Page Application
 function App() {
@@ -26,6 +28,11 @@ function App() {
                   Комментарии
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/posts">
+                  Посты
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -37,6 +44,8 @@ function App() {
         <Route path="/users/:id" element={<UserDetails />} />
         <Route path="/comments" element={<CommentList />} />
         <Route path="/comments/:id" element={<CommentDetails />} />
+        <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/:id" element={<PostDetails />} />
       </Routes>
     </>
   );
