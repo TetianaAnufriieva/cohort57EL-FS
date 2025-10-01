@@ -4,6 +4,8 @@ import type { IComment } from "./CommentList";
 import axios from "axios";
 
 const CommentDetails = () => {
+  // 3. (Для динамической маршрутизации)
+  // Получаем информацию о параметре, который меняется в зависимости от id комментария
   const { id } = useParams<{ id: string }>();
   const [comment, setComment] = useState<IComment | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -35,6 +37,7 @@ useEffect(() => {
         <div className="card-body">
           <p className="card-text"><strong>postId:</strong>{comment.postId}</p>
           <p className="card-text"><strong>id:</strong>{comment.id}</p>
+           {/* 4. Добавляем возможность для пользователя перейти на соответствующий маршрут (/comments) */}
           <Link to="/comments" className="btn btn-secondary btn-sm">Вернуться назад к списку комментариев</Link>      
         </div>
      </div>
