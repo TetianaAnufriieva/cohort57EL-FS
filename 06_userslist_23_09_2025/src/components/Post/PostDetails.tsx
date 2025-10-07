@@ -1,15 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import type { IPost } from "./PostList";
 import axios from "axios";
+import {
+  type ILanguageContext,
+  LanguageContext,
+} from "../../utils/languageContext";
 
 const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<IPost | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+  const { language } = useContext<ILanguageContext>(LanguageContext);
 
-useEffect(() => {
+  useEffect(() => {
     axios
       .get<IPost>(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((res) => res.data)
@@ -24,21 +29,68 @@ useEffect(() => {
       });
   }, [id]);
 
-  if (!post){
-    return <div className="container mt-4">Пост не найден</div>
+  if (!post) {
+    return (
+      <div className="container mt-4">
+        {language === "ru"
+          ? "Пост не найден"
+          : language === "en"
+          ? "Post not found"
+          : "Beitrag nicht gefunden"}
+      </div>
+    );
   }
 
   return (
-    <div className="container mt-4" >
-     <h2>Подробный пост</h2>
-     <div className="card mt-3 shadow-sm">
+    <div className="container mt-4">
+      <h2>
+        {language === "ru"
+          ? "Подробный пост"
+          : language === "en"
+          ? "Detailed pos"
+          : "Detaillierter Beitrag"}
+      </h2>
+      <div className="card mt-3 shadow-sm">
         <div className="card-body">
-          <p className="card-text"><strong>postId: </strong>{post.userId}</p>
-          <p className="card-text"><strong>title: </strong>{post.title}</p>
-          <p className="card-text"><strong>body: </strong>{post.body}</p>
-          <Link to="/posts" className="btn btn-secondary btn-sm">Вернуться назад к списку постов</Link>      
+          <p className="card-text">
+            <strong>
+              {language === "ru"
+                ? "Номер поста: "
+                : language === "en"
+                ? "Post number: "
+                : "Beitragsnummer: "}
+            </strong>
+            {post.userId}
+          </p>
+          <p className="card-text">
+            <strong>
+              {language === "ru"
+                ? "Название поста: "
+                : language === "en"
+                ? "Post title: "
+                : "Beitragstitel: "}
+            </strong>
+            {post.title}
+          </p>
+          <p className="card-text">
+            <strong>
+              {language === "ru"
+                ? "Содержание поста: "
+                : language === "en"
+                ? "Post content: "
+                : "Beitragstext: "}
+            </strong>
+            {post.body}
+          </p>
+          <Link to="/posts" className="btn btn-secondary btn-sm">
+            {language === "ru"
+              ? "Вернуться назад к списку постов"
+              : language === "en"
+              ? "Return to the posts list"
+              : "Zurück zur Beitragsliste"}
+          </Link>
         </div>
-     </div>
+      </div>
       <div>
         {loading && (
           <div className="spinner-border text-primary" role="status">

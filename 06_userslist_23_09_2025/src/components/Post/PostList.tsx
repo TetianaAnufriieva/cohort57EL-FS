@@ -1,6 +1,10 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Post from "./Post";
+import {
+  type ILanguageContext,
+  LanguageContext,
+} from "../../utils/languageContext";
 
 export interface IPost {
   userId: number;
@@ -13,6 +17,7 @@ const PostList = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
+  const { language } = useContext<ILanguageContext>(LanguageContext);
 
   useEffect(() => {
     axios
@@ -32,9 +37,19 @@ const PostList = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Посты пользователей</h2>
+      <h2 className="mb-4">
+        {language === "ru"
+          ? "Посты пользователей"
+          : language === "en"
+          ? "User posts"
+          : "Benutzerbeiträge"}
+      </h2>
       <div className="row g-3">
-                {posts.filter ((_, i) => i < 50).map((e, i) => (<Post key={e.id} post={e}/>))}
+        {posts
+          .filter((_, i) => i < 50)
+          .map((e, i) => (
+            <Post key={e.id} post={e} />
+          ))}
         {/* {comments.slice(0, 20).map((comment) => ( 
           <Comment key={comment.id} comment={comment} />
         ))} */}
